@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Box Hubs AI Chat Embed Demo</title>
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+    <main class="layout">
+        <aside class="controls card" aria-label="Embed controls">
+            <header class="controlsHeader">
+                <h1 class="title">Embed controls</h1>
+                <p class="subtitle">Tweak settings and watch the iframe update.</p>
+            </header>
+
+            <section class="section">
+                <div class="row">
+                    <label for="mode">Embed mode</label>
+                    <select id="mode">
+                        <option value="widget" selected>Chat widget (iframe)</option>
+                        <option value="button">Chat button (script)</option>
+                    </select>
+                </div>
+            </section>
+
+            <section id="widgetControls" class="section">
+                <div class="row">
+                    <label for="w">Width</label>
+                    <div class="value"><span id="wVal">500</span>px</div>
+                </div>
+                <input id="w" type="range" min="320" max="900" step="10" value="500" />
+
+                <div class="row">
+                    <label for="h">Height</label>
+                    <div class="value"><span id="hVal">768</span>px</div>
+                </div>
+                <input id="h" type="range" min="420" max="1000" step="10" value="768" />
+
+                <div class="row">
+                    <label for="closeBtn">showCloseButton</label>
+                    <select id="closeBtn">
+                        <option value="false" selected>false</option>
+                        <option value="true">true</option>
+                    </select>
+                </div>
+
+                <div class="row">
+                    <label for="includeSharedLink">Include sharedLink</label>
+                    <select id="includeSharedLink">
+                        <option value="true" selected>true</option>
+                        <option value="false">false</option>
+                    </select>
+                </div>
+
+                <p class="hint">
+                    Tip: turn on <strong>showCloseButton</strong> and click the X in the chat to trigger the close
+                    event.
+                </p>
+            </section>
+
+            <section id="buttonControls" class="section hidden">
+                <div class="row">
+                    <label for="buttonText">Button text</label>
+                    <select id="buttonText">
+                        <option value="Box AI" selected>Box AI</option>
+                        <option value="Ask the Hub">Ask the Hub</option>
+                        <option value="Ask our chatbot">Ask our chatbot</option>
+                    </select>
+                </div>
+
+                <p class="hint">
+                    Button mode injects a Box-hosted script that renders a floating chat button.
+                </p>
+            </section>
+
+            <section class="section">
+                <div class="row">
+                    <label>Event log</label>
+                    <button id="clearLog" type="button">Clear</button>
+                </div>
+                <pre id="log" class="log" aria-label="Event log"></pre>
+            </section>
+        </aside>
+
+        <section id="previewPanel" class="preview card" aria-label="Embed preview">
+            <div class="previewHeader">
+                <h2 class="previewTitle">Preview</h2>
+            </div>
+
+            <div class="embedWrap">
+                <iframe id="chatFrame" title="Box Hubs AI Chat" width="500" height="768" allowfullscreen
+                    webkitallowfullscreen msallowfullscreen
+                    allow="local-network-access *; clipboard-read *; clipboard-write *"></iframe>
+            </div>
+
+            <div id="buttonMount" class="buttonMount"></div>
+        </section>
+    </main>
+
+    <script src="./app.js" defer></script>
+</body>
+
+</html>
